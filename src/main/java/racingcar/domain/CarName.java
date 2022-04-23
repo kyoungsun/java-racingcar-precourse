@@ -2,9 +2,9 @@ package racingcar.domain;
 
 import java.util.Objects;
 
-public class CarName {
+import static racingcar.domain.ErrorMessage.CAR_NAME_LENGTH_ERROR;
 
-    private static final String NAME_LENGTH_ERROR_MESSAGE = "[ERROR] 자동차 이름은 5자 이하만 가능합니다.";
+public class CarName {
 
     private static final int NAME_LENGTH_MAX = 5;
 
@@ -12,7 +12,7 @@ public class CarName {
 
     public CarName(String value) {
         if (value.length() > NAME_LENGTH_MAX) {
-            throw new IllegalArgumentException(NAME_LENGTH_ERROR_MESSAGE);
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR);
         }
         this.value = value;
     }

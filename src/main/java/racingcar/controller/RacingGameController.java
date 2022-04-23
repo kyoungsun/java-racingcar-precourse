@@ -1,17 +1,10 @@
 package racingcar.controller;
 
-import racingcar.domain.CarName;
+import racingcar.domain.CarNames;
 import racingcar.domain.GameRound;
 import racingcar.view.RacingGameConsole;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static racingcar.domain.ErrorMessage.*;
-
 public class RacingGameController {
-
-    private static final String CAR_NAME_DELIMITER = ",";
 
     private final RacingGameConsole console;
 
@@ -20,35 +13,18 @@ public class RacingGameController {
     }
 
     public void playGame() {
-        List<CarName> carNames = getCarNames();
+        CarNames carNames = getCarNames();
         System.out.println(carNames);
         GameRound gameRound = getGameRound();
         System.out.println(gameRound.getValue());
-    }    
+    }
 
-    private List<CarName> getCarNames() {
+    private CarNames getCarNames() {
         try {
-            String names = console.getCarNames();
-            return parseCarNames(names);
+            return new CarNames(console.getCarNames());
         } catch (IllegalArgumentException e) {
             console.printErrorMessage(e);
             return getCarNames();
-        }
-    }    
-
-    private List<CarName> parseCarNames(String names) {
-        validateCarNamesDelimiter(names);
-        List<CarName> carNames  = new ArrayList<>();
-        String[] split = names.split(CAR_NAME_DELIMITER);
-        for (String name : split) {
-            carNames.add(new CarName(name));
-        }
-        return carNames;
-    }
-
-    private void validateCarNamesDelimiter(String carNames) {
-        if (!carNames.contains(CAR_NAME_DELIMITER)) {
-            throw new IllegalArgumentException(CAR_NAME_DELIMITER_ERROR_MESSAGE);
         }
     }
 
