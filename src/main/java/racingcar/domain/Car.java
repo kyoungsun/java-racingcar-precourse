@@ -2,20 +2,18 @@ package racingcar.domain;
 
 public class Car {
 
-    private static final int POSITION_INITIAL_VALUE = 0;
     private static final int MOVABLE_CONDITION = 4;
 
     private final CarName carName;
-    private int position;
-
+    private final Position position;
 
     public Car(final String name) {
         this.carName = new CarName(name);
-        this.position = POSITION_INITIAL_VALUE;
+        this.position = new Position();
     }
 
     public void moveForward() {
-        this.position += 1;
+        this.position.moveForward();
     }
 
     public String getName() {
@@ -23,7 +21,7 @@ public class Car {
     }
 
     public int getPosition() {
-        return position;
+        return position.getValue();
     }
 
     public void move(int condition) {

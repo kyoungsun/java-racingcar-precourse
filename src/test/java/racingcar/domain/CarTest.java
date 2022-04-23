@@ -32,6 +32,14 @@ public class CarTest {
         assertThat(car.getPosition()).isEqualTo(1);
     }
 
+    @Test
+    void 자동차_두_번_전진하기() {
+        Car car = new Car("kks");
+        car.moveForward();
+        car.moveForward();
+        assertThat(car.getPosition()).isEqualTo(2);
+    }
+
     @ParameterizedTest
     @CsvSource({"0,0", "3,0", "4,1", "9,1"})
     void 숫자가_4_이상일_때만_전진_(int condition, int position) {
