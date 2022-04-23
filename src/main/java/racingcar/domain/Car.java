@@ -10,6 +10,11 @@ public class Car {
         this.position = new Position();
     }
 
+    public Car(final CarName carName) {
+        this.carName = carName;
+        this.position = new Position();
+    }
+
     public void moveForward() {
         this.position.moveForward();
     }

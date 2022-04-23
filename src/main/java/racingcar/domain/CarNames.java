@@ -31,4 +31,7 @@ public class CarNames {
         }
     }
 
+    public List<CarName> getCarNames() {
+        return carNames;
+    }
 }

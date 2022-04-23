@@ -1,22 +1,28 @@
 package racingcar.controller;
 
 import racingcar.domain.CarNames;
+import racingcar.domain.Cars;
 import racingcar.domain.GameRound;
+import racingcar.domain.RandomConditionGenerator;
 import racingcar.view.RacingGameConsole;
 
 public class RacingGameController {
 
     private final RacingGameConsole console;
+    private final RandomConditionGenerator generator;
 
-    public RacingGameController(RacingGameConsole console) {
+    public RacingGameController(RacingGameConsole console, RandomConditionGenerator generator) {
         this.console = console;
+        this.generator = generator;
     }
 
     public void playGame() {
-        CarNames carNames = getCarNames();
-        System.out.println(carNames);
+        Cars cars = Cars.of(getCarNames());
         GameRound gameRound = getGameRound();
-        System.out.println(gameRound.getValue());
+        for (int i = 0; i < gameRound.getValue(); i++) {
+            cars.move(generator);
+            console.printCurrentPosition(cars);
+        }
     }
 
     private CarNames getCarNames() {
