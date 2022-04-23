@@ -2,8 +2,6 @@ package racingcar.domain;
 
 public class Car {
 
-    private static final int MOVABLE_CONDITION = 4;
-
     private final CarName carName;
     private final Position position;
 
@@ -24,13 +22,9 @@ public class Car {
         return position.getValue();
     }
 
-    public void move(int condition) {
-        if (isMovableCondition(condition)) {
+    public void move(Condition condition) {
+        if (condition.isMovableCondition()) {
             moveForward();
         }
-    }
-
-    private boolean isMovableCondition(int condition) {
-        return condition >= MOVABLE_CONDITION;
     }
 }

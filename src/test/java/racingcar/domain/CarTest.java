@@ -42,9 +42,9 @@ public class CarTest {
 
     @ParameterizedTest
     @CsvSource({"0,0", "3,0", "4,1", "9,1"})
-    void 숫자가_4_이상일_때만_전진_(int condition, int position) {
+    void 숫자가_4_이상일_때만_전진(int condition, int position) {
         Car car = new Car("kks");
-        car.move(condition);
+        car.move(new Condition(condition));
         assertThat(car.getPosition()).isEqualTo(position);
     }
 }
