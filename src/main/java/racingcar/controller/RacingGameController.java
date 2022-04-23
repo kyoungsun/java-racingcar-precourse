@@ -1,12 +1,13 @@
 package racingcar.controller;
 
 import racingcar.domain.CarName;
+import racingcar.domain.GameRound;
 import racingcar.view.RacingGameConsole;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static racingcar.domain.ErrorMessage.CAR_NAME_DELIMITER_ERROR_MESSAGE;
+import static racingcar.domain.ErrorMessage.*;
 
 public class RacingGameController {
 
@@ -21,6 +22,8 @@ public class RacingGameController {
     public void playGame() {
         List<CarName> carNames = getCarNames();
         System.out.println(carNames);
+        GameRound gameRound = getGameRound();
+        System.out.println(gameRound.getValue());
     }    
 
     private List<CarName> getCarNames() {
@@ -46,6 +49,15 @@ public class RacingGameController {
     private void validateCarNamesDelimiter(String carNames) {
         if (!carNames.contains(CAR_NAME_DELIMITER)) {
             throw new IllegalArgumentException(CAR_NAME_DELIMITER_ERROR_MESSAGE);
+        }
+    }
+
+    private GameRound getGameRound() {
+        try {
+            return new GameRound(console.getGameRound());
+        } catch (IllegalArgumentException e) {
+            console.printErrorMessage(e);
+            return getGameRound();
         }
     }
 
