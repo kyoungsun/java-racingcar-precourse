@@ -29,4 +29,8 @@ public class RacingGameConsole {
         }
     }
 
+    public void printErrorMessage(Exception e) {
+        System.out.println(e.getMessage());
+    }
+
 }
