@@ -36,6 +36,7 @@ public class RacingGameConsole {
         for (Car car : cars.getCars()) {
             System.out.println(createCurrentPositionMessage(car));
         }
+        System.out.println();
     }
 
     private String createCurrentPositionMessage(Car car) {
