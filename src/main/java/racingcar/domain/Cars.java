@@ -20,7 +20,7 @@ public class Cars {
         return new Cars(cars);
     }
 
-    public void move(RandomConditionGenerator generator) {
+    public void move(ConditionGenerator generator) {
         for (Car car : cars) {
             car.move(generator.generate());
         }

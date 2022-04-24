@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.controller.RacingGameController;
-import racingcar.domain.RandomConditionGenerator;
+import racingcar.domain.generator.RandomConditionGenerator;
 import racingcar.view.RacingGameConsole;
 
 public class Application {

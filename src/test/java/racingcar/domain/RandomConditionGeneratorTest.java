@@ -1,8 +1,7 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
+import racingcar.domain.generator.RandomConditionGenerator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -15,11 +14,4 @@ class RandomConditionGeneratorTest {
         assertThat(condition.getValue()).isBetween(Condition.MIN_VALUE, Condition.MAX_VALUE);
     }
 
-    @Test
-    void 여러개의_컨디션을_생성() {
-        RandomConditionGenerator generator = new RandomConditionGenerator();
-        int count = 3;
-        List<Condition> conditions = generator.generate(count);
-        assertThat(conditions.size()).isEqualTo(count);
-    }
 }

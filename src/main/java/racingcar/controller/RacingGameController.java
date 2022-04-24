@@ -2,16 +2,16 @@ package racingcar.controller;
 
 import racingcar.domain.CarNames;
 import racingcar.domain.Cars;
+import racingcar.domain.ConditionGenerator;
 import racingcar.domain.GameRound;
-import racingcar.domain.RandomConditionGenerator;
 import racingcar.view.RacingGameConsole;
 
 public class RacingGameController {
 
     private final RacingGameConsole console;
-    private final RandomConditionGenerator generator;
+    private final ConditionGenerator generator;
 
-    public RacingGameController(RacingGameConsole console, RandomConditionGenerator generator) {
+    public RacingGameController(RacingGameConsole console, ConditionGenerator generator) {
         this.console = console;
         this.generator = generator;
     }
