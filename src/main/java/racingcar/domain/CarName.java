@@ -11,10 +11,14 @@ public class CarName {
     private final String value;
 
     public CarName(String value) {
+        validateValue(value);
+        this.value = value;
+    }
+
+    private void validateValue(String value) {
         if (value.length() > NAME_LENGTH_MAX) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR);
         }
-        this.value = value;
     }
 
     public String getValue() {

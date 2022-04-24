@@ -42,7 +42,7 @@ public class RacingGameConsole {
     private String createCurrentPositionMessage(Car car) {
         StringBuffer sb = new StringBuffer(car.getName());
         sb.append(COLON);
-        int position = car.getPosition();
+        int position = car.getPosition().getValue();
         for (int i = 0; i < position; i++) {
             sb.append(POSITION_STRING);
         }

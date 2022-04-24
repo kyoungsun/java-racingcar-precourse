@@ -8,8 +8,7 @@ public class Car {
     private final Position position;
 
     public Car(final String name) {
-        this.carName = new CarName(name);
-        this.position = new Position();
+        this(new CarName(name));
     }
 
     public Car(final CarName carName) {
@@ -25,8 +24,8 @@ public class Car {
         return carName.getValue();
     }
 
-    public int getPosition() {
-        return position.getValue();
+    public Position getPosition() {
+        return position;
     }
 
     public void move(Condition condition) {
@@ -35,8 +34,8 @@ public class Car {
         }
     }
 
-    public void checkPositionForWinners(int maxPosition, List<Car> winners) {
-        if (this.position.equals(new Position(maxPosition))) {
+    public void checkPositionForWinners(Position maxPosition, List<Car> winners) {
+        if (position.equals(maxPosition)) {
             winners.add(this);
         }
     }

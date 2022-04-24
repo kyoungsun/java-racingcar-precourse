@@ -31,7 +31,7 @@ public class Cars {
     }
 
     public Cars getWinners() {
-        int maxPosition = findMaxPosition();
+        Position maxPosition = findMaxPosition();
         List<Car> winners = new ArrayList<>();
         for (Car car : cars) {
             car.checkPositionForWinners(maxPosition, winners);
@@ -39,8 +39,8 @@ public class Cars {
         return new Cars(winners);
     }
 
-    private int findMaxPosition() {
-        List<Integer> positions = new ArrayList<>();
+    private Position findMaxPosition() {
+        List<Position> positions = new ArrayList<>();
         for (Car car : cars) {
             positions.add(car.getPosition());
         }
