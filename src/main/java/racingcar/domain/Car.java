@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class Car {
 
     private final CarName carName;
@@ -30,6 +32,12 @@ public class Car {
     public void move(Condition condition) {
         if (condition.isMovableCondition()) {
             moveForward();
+        }
+    }
+
+    public void checkPositionForWinners(int maxPosition, List<Car> winners) {
+        if (this.position.equals(new Position(maxPosition))) {
+            winners.add(this);
         }
     }
 }

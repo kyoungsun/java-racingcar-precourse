@@ -23,6 +23,8 @@ public class RacingGameController {
             cars.move(generator);
             console.printCurrentPosition(cars);
         }
+        Cars winners = cars.getWinners();
+        console.printWinners(winners);
     }
 
     private CarNames getCarNames() {
