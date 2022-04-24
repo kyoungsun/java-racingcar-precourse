@@ -12,7 +12,7 @@ public class CarTest {
     void 숫자가_4_이상일_때만_전진(int condition, int position) {
         Car car = new Car("kks");
         car.move(new Condition(condition));
-        assertThat(car.getPosition()).isEqualTo(position);
+        assertThat(car.getPosition()).isEqualTo(new Position(position));
     }
 
 }

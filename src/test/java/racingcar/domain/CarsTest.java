@@ -8,8 +8,8 @@ class CarsTest {
 
     private static final int MOVE = 4;
     private static final int STOP = 3;
-    private static final int MOVE_POSITION = 1;
-    private static final int STOP_POSITION = 0;
+    private static final Position MOVE_POSITION = new Position(1);
+    private static final Position STOP_POSITION = new Position(0);
 
     @Test
     void 모든_차량_전진() {
